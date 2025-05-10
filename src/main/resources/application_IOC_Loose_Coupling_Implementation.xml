@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Here since there are two implementation of our interface ( userDataProvider and databseWithMongo)  so i will create the bean of those two implements  -->
+
+
+    <bean id="userDatabaseProvider"
+          class="com.loose.coupling.ioc.implementation.UserDatabaseProvider"/>
+    <!--here is the one implementation of the of interface with userDatabaseProvider both are database which can can in future -->
+
+
+
+    <bean id="userDatabaseWithMongo"
+          class="com.loose.coupling.ioc.implementation.UserDatabaseWithMongo"/>
+    <!--  here is another implementation of the interface with userDatabaseWith Mongo  both are database which can can in future-->
+
+
+    <!-- since the user manager is the one who is making the instance/obj
+    of the interface(which is used by the database classes) since user manager interface
+    will have it constructor and it want the obj of the any implemenation at run time
+    whether it is  for databaseWith Mongo or userdatabase provider-->
+    <bean id="userManagerWithUserDatabaseProvider" class="com.loose.coupling.ioc.implementation.UserManager">
+        <constructor-arg ref="userDatabaseProvider"/>
+    </bean>
+
+    <bean id="userManagerWithMongoDatabase" class="com.loose.coupling.ioc.implementation.UserManager">
+        <constructor-arg ref="userDatabaseWithMongo"/>
+    </bean>
+
+
+</beans>

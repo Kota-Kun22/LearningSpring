@@ -1,6 +1,6 @@
-package com.loose.coupling;
+package com.loose.coupling.ioc.implementation;
 
-public class UserDatabaseProvider  implements UserDataProvider{
+public class UserDatabaseProvider  implements UserDataProvider {
 
 
     @Override
