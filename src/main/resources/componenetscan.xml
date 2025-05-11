@@ -10,7 +10,7 @@
     <context:component-scan base-package="com.example.componenetscan"/>
 
 
-    <!-- here i dont have to create the those beans i have defined the @component annotation which is a type of bean which will searched by
+    <!-- here I don't have to create those beans I have defined the @component annotation, which is a type of bean that will searched by
      the component scanner and that will make a bean out of it-->
 
 
